@@ -1,0 +1,453 @@
+:root {
+      --navy: #14304f;
+      --teal: #1a9aa0;
+      --sage: #dbe6dc;
+      --sand: #f5f1e8;
+      --ink: #1d2a38;
+      --mut: #566474;
+      --line: #d5dccf;
+      --bg: #fbfaf6;
+      --card: #fff;
+      --tealtxt: #0f7479;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    @media (prefers-color-scheme:dark) {
+      :root:not([data-theme="light"]) {
+        --navy: #a9cbe8;
+        --teal: #4cc3c8;
+        --sage: #223a37;
+        --sand: #1b2530;
+        --ink: #e6ecf2;
+        --mut: #a3b0bf;
+        --line: #2d3b48;
+        --bg: #121a22;
+        --card: #19232d;
+        --tealtxt: #6fd3d7
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --navy: #a9cbe8;
+      --teal: #4cc3c8;
+      --sage: #223a37;
+      --sand: #1b2530;
+      --ink: #e6ecf2;
+      --mut: #a3b0bf;
+      --line: #2d3b48;
+      --bg: #121a22;
+      --card: #19232d;
+      --tealtxt: #6fd3d7
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px)
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 16px/1.65 Figtree, system-ui, sans-serif
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Bricolage Grotesque', Figtree, sans-serif;
+      color: var(--navy);
+      line-height: 1.15;
+      margin: 0 0 .5em
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem)
+    }
+
+    h3 {
+      font-size: 1.3rem
+    }
+
+    h4 {
+      font-size: 1.05rem
+    }
+
+    p {
+      margin: 0 0 1em;
+      max-width: 70ch
+    }
+
+    a {
+      color: var(--tealtxt)
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--teal);
+      outline-offset: 2px
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding-top: env(safe-area-inset-top, 0px)
+    }
+
+    .bar {
+      max-width: 1120px;
+      margin: auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    .brand {
+      font: 700 1.25rem 'Bricolage Grotesque';
+      color: var(--navy);
+      text-decoration: none;
+      margin-right: auto
+    }
+
+    nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap
+    }
+
+    nav button,
+    .sub button {
+      font: 500 .95rem Figtree;
+      background: none;
+      border: 0;
+      color: var(--mut);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer
+    }
+
+    nav button:hover,
+    .sub button:hover {
+      color: var(--navy);
+      background: var(--sage)
+    }
+
+    nav button[aria-selected=true] {
+      color: var(--navy);
+      background: var(--sage);
+      font-weight: 600
+    }
+
+    main {
+      max-width: 1120px;
+      margin: auto;
+      padding: 40px 20px 80px
+    }
+
+    .tab {
+      display: none
+    }
+
+    .tab.on {
+      display: block
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
+      align-items: center;
+      padding: 24px 0 48px
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem)
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 380px;
+      justify-self: center;
+      border-radius: 20px
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--mut)
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--bg);
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 0;
+      cursor: pointer;
+      font-family: Figtree;
+      font-size: 1rem
+    }
+
+    .btn.alt {
+      background: none;
+      color: var(--navy);
+      border: 2px solid var(--navy)
+    }
+
+    .sec {
+      margin: 56px 0
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px
+    }
+
+    .card.sage {
+      background: var(--sage);
+      border-color: transparent
+    }
+
+    .val {
+      border-left: 4px solid var(--teal);
+      padding: 4px 0 4px 16px;
+      margin-bottom: 14px
+    }
+
+    .val b {
+      display: block;
+      color: var(--navy)
+    }
+
+    .quote {
+      background: var(--sand);
+      border-radius: 16px;
+      padding: 28px
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: .8rem;
+      background: var(--sage);
+      color: var(--navy);
+      padding: 2px 10px;
+      border-radius: 99px;
+      margin-bottom: 10px
+    }
+
+    .todo {
+      border: 2px dashed var(--teal)
+    }
+
+    .sub {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      margin: 24px 0
+    }
+
+    .sub button {
+      border-radius: 8px 8px 0 0;
+      padding: 12px 16px
+    }
+
+    .sub button[aria-selected=true] {
+      color: var(--navy);
+      font-weight: 600;
+      box-shadow: inset 0 -3px var(--teal)
+    }
+
+    .sp {
+      display: none
+    }
+
+    .sp.on {
+      display: block
+    }
+
+    .sp h3 {
+      margin-top: 2em
+    }
+
+    .who {
+      color: var(--mut);
+      font-size: .95rem;
+      margin-bottom: 20px
+    }
+
+    ul {
+      padding-left: 1.2em;
+      margin: 0 0 1em
+    }
+
+    li {
+      margin-bottom: .35em;
+      max-width: 70ch
+    }
+
+    .tw {
+      overflow-x: auto
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 560px;
+      font-size: .93rem
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left
+    }
+
+    th {
+      background: var(--sage);
+      color: var(--navy)
+    }
+
+    td.n {
+      text-align: right;
+      white-space: nowrap
+    }
+
+    tr.t td {
+      font-weight: 600;
+      background: var(--sand)
+    }
+
+    .team {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    }
+
+    .m img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 10px;
+      margin-bottom: 14px
+    }
+
+    .m h4 {
+      margin: 0
+    }
+
+    .role {
+      color: var(--tealtxt);
+      font-weight: 600;
+      margin-bottom: 10px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 0 12px;
+      padding: 0;
+      list-style: none
+    }
+
+    .chips li {
+      font-size: .82rem;
+      background: var(--sage);
+      color: var(--navy);
+      padding: 3px 10px;
+      border-radius: 99px;
+      margin: 0
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 14px 0 4px
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      font: inherit;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--ink)
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--navy)
+    }
+
+    details p {
+      margin: 10px 0 0
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--mut);
+      font-size: .9rem
+    }
+
+    @media(max-width:760px) {
+      .hero {
+        grid-template-columns: 1fr
+      }
+
+      .hero img {
+        order: -1;
+        max-width: 260px
+      }
+    }
+
+    @media(prefers-reduced-motion:no-preference) {
+      .tab.on {
+        animation: in .25s ease-out
+      }
+
+      @keyframes in {
+        from {
+          opacity: 0
+        }
+
+        to {
+          opacity: 1
+        }
+      }
+    }
